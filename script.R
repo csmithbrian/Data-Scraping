@@ -19,3 +19,20 @@ altResultsDf$Match_Date <- as.POSIXct(paste(substr(altResultsDf$Match_Date,5,6),
 #Get rid of in progress games
 #altResultsDf <- altResultsDf[which(altResultsDf$Score!="? - ?"),]
 altResultsDf <- altResultsDf[which(altResultsDf$Min=="FT"),]
+
+altMoreInfo <- xpathSApply(altRootNode,"//a[@class='scorelink'][@href]",xmlAttrs,"href")
+altScorelinks<-paste0("http://www.livescore.com",altMoreInfo[1,])
+altResultsDf$MatchInfoLink<-altScorelinks
+
+
+
+
+#doesnt work
+#scoresNode <- getNodeSet(altRootNode, "//div[@data-esd]")
+#z <- lapply(scoresNode, function(x){
+#                 subDoc <- xmlDoc(x)
+#                 r <- xpathApply(x, "//a[@href]")
+#                 free(subDoc) # not sure if necessary
+#                 return(r)
+#})
+
