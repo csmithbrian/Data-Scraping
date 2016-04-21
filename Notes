@@ -1,1 +1,2 @@
 We can get match facts for each match using the href+"http://www.livescore.com/" - maybe set up a table for each match? How to do this in terms of best practices? Also should I set up some kind of RDBS in R? Is that possible?
+href attribute of node //a
