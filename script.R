@@ -26,6 +26,15 @@ altResultsDf$MatchInfoLink<-altScorelinks
 
 
 
+#testing a match details script
+
+matchNode<-htmlParse(altResultsDf$MatchInfoLink[1])
+minute<-xpathSApply(matchNode,"//div[@data-id='details']/div[@class='min']",xmlValue)
+names<-xpathSApply(matchNode,"//div[@data-id='details']/div[@class='ply tright' or @class='ply']/div/span[@class='name']",xmlValue)
+
+
+
+#details<-xpathSApply(matchNode,"//div[@class='min']",xmlValue);details<-details[3:length(details)]
 
 #doesnt work
 #scoresNode <- getNodeSet(altRootNode, "//div[@data-esd]")
