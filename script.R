@@ -31,6 +31,10 @@ altResultsDf$MatchInfoLink<-altScorelinks
 matchNode<-htmlParse(altResultsDf$MatchInfoLink[1])
 minute<-xpathSApply(matchNode,"//div[@data-id='details']/div[@class='min']",xmlValue)
 names<-xpathSApply(matchNode,"//div[@data-id='details']/div[@class='ply tright' or @class='ply']/div/span[@class='name']",xmlValue)
+names[which(names!="")]
+
+#realy just experimenting here
+stuff<-xpathSApply(matchNode,"//div[@data-id='details']/div[@class='ply tright' or @class='ply']/div/span[@class]",xmlAttrs)
 
 
 
